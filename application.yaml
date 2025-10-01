@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/tekkisse/boostrap-k3s.git
     targetRevision: HEAD
-    path: manifests/CloudNativePG
+    path: manifests/apps
   destination:
     server: https://kubernetes.default.svc
     namespace: default
