@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cloudnative-pg
+  name: cnpg-crds
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://cloudnative-pg.github.io/charts
-    chart: cloudnative-pg
-    targetRevision: 0.26.0   # <-- check latest version
+    repoURL: https://github.com/cloudnative-pg/cloudnative-pg
+    targetRevision: release-0.26
+    path: config/crd/bases
   destination:
     server: https://kubernetes.default.svc
     namespace: cnpg-system
@@ -18,5 +18,5 @@ spec:
       selfHeal: true
       allowEmpty: false
     syncOptions:
-    - CreateNamespace=true
-    - PruneLast=true
+      - CreateNamespace=true
+      - PruneLast=true
