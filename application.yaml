@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp
+  name: bootstrap
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-org/your-repo.git
+    repoURL: https://github.com/tekkisse/boostrap-k3s.git
     targetRevision: HEAD
     path: manifests
   destination:
