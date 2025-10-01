@@ -8,7 +8,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 kubectl wait --for=condition=available deployment   --all -n argocd --timeout=300s
 
 # Get apssword
-kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d && echo
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" 
 
 kubectl apply -f github-secret.yaml
 kubectl apply -f application.yaml
