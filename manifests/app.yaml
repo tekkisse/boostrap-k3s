@@ -19,6 +19,6 @@ spec:
     - CreateNamespace=true 
     - PruneLast=false
   source:
-    repoURL: git@github.com/SwanseaUniversityMedical/k8s-mgmt-deploy
+    repoURL: git@github.com/tekkisse/boostrap-k3s
     targetRevision: HEAD
     path: operators/apps
