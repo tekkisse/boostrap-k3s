@@ -1,0 +1,1 @@
+# boostrap-k3s
