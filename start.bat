@@ -12,8 +12,9 @@ kubectl patch configmap argocd-cm -n argocd --type merge   -p '{"data":{"kustomi
 kubectl rollout restart deploy argocd-repo-server -n argocd
 
 # Rollout boot strap
-kubectl apply -f github-secret.yaml
-kubectl apply -f bootstrap.yaml
+kubectl apply -f bootstrap/argocd-project.yaml
+kubectl apply -f bootstrap/github-secret.yaml
+kubectl apply -f bootstrap/bootstrap.yaml
 
 # Get argocd password
 kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" 

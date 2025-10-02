@@ -4,7 +4,7 @@ metadata:
   name: minio-operator
   namespace: argocd
 spec:
-  project: default
+  project: infra-project
   source:
     repoURL: https://operator.min.io
     chart: operator

@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: infra-project
+  namespace: argocd
+spec:
+  description: Project for infra-related applications (e.g., MinIO)
+  sourceRepos:
+    - '*'   # or restrict to https://operator.min.io if you want
+  destinations:
+    - namespace: '*'
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'

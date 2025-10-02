@@ -4,9 +4,9 @@ metadata:
   name: postgres-operator
   namespace: argocd
 spec:
-  project: default
+  project: infra-project
   destination:
-    namespace: default
+    namespace: postgres-operator
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
