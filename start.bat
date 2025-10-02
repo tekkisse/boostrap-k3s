@@ -14,8 +14,9 @@ kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.pas
 kubectl patch configmap argocd-cm -n argocd --type merge   -p '{"data":{"kustomize.buildOptions":"--enable-helm"}}'
 kubectl rollout restart deploy argocd-repo-server -n argocd
 
-# Rollout cloud native PG
-kubectl apply -f postgres-operator.yaml
+# Rollout boot strap
+kubectl apply -f github-secret.yaml
+kubectl apply -f bootstrap.yaml
 
 
 
