@@ -2,17 +2,15 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: postgres-operator
-  namespace: hiru-mgmt-argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  namespace: argocd
 spec:
-  project: hiru-mgmt-operators
+  project: default
   destination:
-    namespace: cnpg-system
+    namespace: default
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
-      prune: false
+      prune: true
       selfHeal: true
       allowEmpty: false
     syncOptions:
@@ -29,6 +27,6 @@ spec:
         monitoring:
           grafanaDashboard:
             create: true
-            namespace: hiru-mgmt-monitoring
+            namespace: default
           podMonitorEnabled: true
         

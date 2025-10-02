@@ -11,7 +11,9 @@ kubectl wait --for=condition=available deployment   --all -n argocd --timeout=30
 kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" 
 
 kubectl apply -f github-secret.yaml
-kubectl apply -f application.yaml
+#kubectl apply -f application.yaml
+
+#kubectl apply -f postgres-operator.yaml
 
 
 
