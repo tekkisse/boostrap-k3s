@@ -7,16 +7,17 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 # Wait for deployments to be ready
 kubectl wait --for=condition=available deployment   --all -n argocd --timeout=300s
 
-# Get apssword
-kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" 
-
-# Enable HELM
+# Enable HELM in ArgoCD
 kubectl patch configmap argocd-cm -n argocd --type merge   -p '{"data":{"kustomize.buildOptions":"--enable-helm"}}'
 kubectl rollout restart deploy argocd-repo-server -n argocd
 
 # Rollout boot strap
 kubectl apply -f github-secret.yaml
 kubectl apply -f bootstrap.yaml
+
+# Get argocd password
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" 
+
 
 
 
