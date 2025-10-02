@@ -10,10 +10,12 @@ kubectl wait --for=condition=available deployment   --all -n argocd --timeout=30
 # Get apssword
 kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" 
 
-kubectl apply -f github-secret.yaml
-#kubectl apply -f application.yaml
+# Enable HELM
+kubectl patch configmap argocd-cm -n argocd --type merge   -p '{"data":{"kustomize.buildOptions":"--enable-helm"}}'
+kubectl rollout restart deploy argocd-repo-server -n argocd
 
-#kubectl apply -f postgres-operator.yaml
+# Rollout cloud native PG
+kubectl apply -f postgres-operator.yaml
 
 
 

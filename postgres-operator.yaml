@@ -20,13 +20,5 @@ spec:
   source:
     repoURL: 'https://cloudnative-pg.github.io/charts'
     chart: cloudnative-pg
-    targetRevision: 0.25.0
-    helm:
-      values: |
-        # https://github.com/cloudnative-pg/charts/blob/main/charts/cloudnative-pg/README.md
-        monitoring:
-          grafanaDashboard:
-            create: true
-            namespace: default
-          podMonitorEnabled: true
+    targetRevision: 0.24.0
         
