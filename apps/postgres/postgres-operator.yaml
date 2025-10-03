@@ -19,7 +19,7 @@ spec:
       - ServerSideApply=true
   source:
     repoURL: 'https://cloudnative-pg.github.io/charts'
-    chart: cnpg/cloudnative-pg
+    chart: cloudnative-pg
     targetRevision: 0.24.0
     helm:
       values: |
