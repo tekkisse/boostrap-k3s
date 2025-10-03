@@ -16,12 +16,11 @@ kubectl apply -f bootstrap/argocd-project.yaml
 kubectl apply -f bootstrap/github-secret.yaml
 kubectl apply -f bootstrap/bootstrap.yaml
 
+# Get argocd password
+kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" 
 
 # Forward ArgoCD interface to port 8080
-kubectl port-forward svc/argocd-server -n argocd 8080:443 --address 0.0.0.0
-
-# Get argocd password
-# kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" 
+#kubectl port-forward svc/argocd-server -n argocd 8080:443 --address 0.0.0.0
 
 
 
