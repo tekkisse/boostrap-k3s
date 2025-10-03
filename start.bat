@@ -16,6 +16,9 @@ kubectl apply -f bootstrap/argocd-project.yaml
 kubectl apply -f bootstrap/github-secret.yaml
 kubectl apply -f bootstrap/bootstrap.yaml
 
+# cloudnativePG not through argocd ?
+# kubectl apply --server-side -f   https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.26/releases/cnpg-1.26.0.yaml
+
 # Get argocd password
 kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" 
 

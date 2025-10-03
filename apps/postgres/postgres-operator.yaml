@@ -18,15 +18,15 @@ spec:
       - ApplyOutOfSyncOnly=true
       - ServerSideApply=true
   source:
-    repoURL: 'https://cloudnative-pg.github.io/charts'
+    repoURL: https://cloudnative-pg.github.io/charts
     chart: cloudnative-pg
-    targetRevision: 0.24.0
-    helm:
-      values: |
-        # https://github.com/cloudnative-pg/charts/blob/main/charts/cloudnative-pg/README.md
-        monitoring:
-          grafanaDashboard:
-            create: true
-            namespace: postgres-operator
-          podMonitorEnabled: true
+    targetRevision: latest
+#    helm:
+#      values: |
+#        # https://github.com/cloudnative-pg/charts/blob/main/charts/cloudnative-pg/README.md
+#        monitoring:
+#          grafanaDashboard:
+#            create: true
+#            namespace: postgres-operator
+#          podMonitorEnabled: true
         
